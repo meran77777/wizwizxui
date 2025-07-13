@@ -2,8 +2,8 @@
 include_once '../baseInfo.php';
 include_once '../config.php';
 
-$sellState=$botState['sellState']=="off"?"خاموش ❌":"روشن ✅";
-$searchState=$botState['searchState']=="off"?"خاموش ❌":"روشن ✅";
+$sellState=$botState['sellState']=="off"?"خاموش 🚫":"روشن 🟢";
+$searchState=$botState['searchState']=="off"?"خاموش 🚫":"روشن 🟢";
 $rewaredTime = ($botState['rewaredTime']??0);
 $rewaredChannel = $botState['rewardChannel'];
 
@@ -34,11 +34,11 @@ if($rewaredTime>0 && $rewaredChannel != null){
         $stmt->close();
 
         $txt = "⁮⁮ ⁮⁮ ⁮⁮ ⁮⁮
-🔰درآمد من در $rewaredTime ساعت گذشته
+🛡️درآمد من در $rewaredTime ساعت گذشته
 
 💰مبلغ : $totalRewards تومان
 
-☑️ $channelLock
+✔️ $channelLock
 
 ";
         sendMessage($txt, null, null, $rewaredChannel);
@@ -85,7 +85,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
             $stmt->execute();
             $stmt->close();
             
-            sendMessage("افزایش حساب شما با موفقیت تأیید شد\n✅ مبلغ " . number_format($price). " تومان به حساب شما اضافه شد", null, null, $user_id);
+            sendMessage("افزایش حساب شما با موفقیت تأیید شد\n🟢 مبلغ " . number_format($price). " تومان به حساب شما اضافه شد", null, null, $user_id);
         }
         elseif($payType == "BUY_SUB"){
             $fid = $payInfo['plan_id']; 
@@ -133,7 +133,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 $stmt->execute();
                 $stmt->close();
                 
-                sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
+                sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
 
                 exit;
             }
@@ -152,7 +152,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                     $stmt->execute();
                     $stmt->close();
 
-                    sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
+                    sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
                     exit;
                 }
             }
@@ -238,18 +238,18 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                     $stmt->execute();
                     $stmt->close();
 
-                    sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، اتصال به سرور برقرار نبود",null,null,$admin);                
+                    sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، اتصال به سرور برقرار نبود",null,null,$admin);                
                     exit;
                 }
                 if($response == "inbound not Found"){
-                    sendMessage("پرداخت شما با موفقیت انجام شد ولی ❌ | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...مبلغ " . number_format($price) . " به کیف پول شما اضافه شد",null,null,$user_id);
+                    sendMessage("پرداخت شما با موفقیت انجام شد ولی 🚫 | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...مبلغ " . number_format($price) . " به کیف پول شما اضافه شد",null,null,$user_id);
             
                     $stmt = $connection->prepare("UPDATE `users` SET `wallet` = `wallet` + ? WHERE `userid` = ?");
                     $stmt->bind_param("ii", $price, $user_id);
                     $stmt->execute();
                     $stmt->close();
                     
-                    sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی انباند پیدا نشد",null,null,$admin);                
+                    sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی انباند پیدا نشد",null,null,$admin);                
                 	exit;
                 }
                 if(!$response->success){
@@ -259,7 +259,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                     $stmt->bind_param("ii", $price, $user_id);
                     $stmt->execute();
                     $stmt->close();
-                    sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی خطا داد",null,null,$admin);                
+                    sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی خطا داد",null,null,$admin);                
                     exit;
                 }
                 
@@ -278,8 +278,8 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 foreach($vraylink as $link){
                 $acc_text = "
                 
-        😍 سفارش جدید شما
-        📡 پروتکل: $protocol
+        🤩 سفارش جدید شما
+        📶 پروتکل: $protocol
         🔮 نام سرویس: $remark
         🔋حجم سرویس: $volume گیگ
         ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
@@ -403,7 +403,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 $stmt->execute();
                 $stmt->close();
 
-                sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست کانفیگش رو تمدید کنه، ولی اتصال به سرور برقرار نبود",null,null,$admin);
+                sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست کانفیگش رو تمدید کنه، ولی اتصال به سرور برقرار نبود",null,null,$admin);
             	exit;
             }
             $stmt = $connection->prepare("UPDATE `orders_list` SET `expire_date` = ?, `notif` = 0 WHERE `id` = ?");
@@ -416,7 +416,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
             $stmt->execute();
             $stmt->close();
         
-            sendMessage("✅سرویس $remark با موفقیت تمدید شد",getMainKeys(), null, $user_id);
+            sendMessage("🟢سرویس $remark با موفقیت تمدید شد",getMainKeys(), null, $user_id);
         }
         elseif(preg_match('/^INCREASE_DAY_(\d+)_(\d+)/',$payType, $increaseInfo)){
             $orderId = $increaseInfo[1];
@@ -473,7 +473,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 $stmt->execute();
                 $stmt->close();
                 
-                sendMessage("✅$volume روز به مدت زمان سرویس شما اضافه شد",getMainKeys(), null, $user_id);
+                sendMessage("🟢$volume روز به مدت زمان سرویس شما اضافه شد",getMainKeys(), null, $user_id);
             }else {
                 sendMessage("پرداخت شما با موفقیت انجام شد ولی به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به مدیریت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید مبلغ " . number_format($price) . " تومان به کیف پول شما اضافه شد", $user_id);
                 $stmt = $connection->prepare("UPDATE `users` SET `wallet` = `wallet` + ? WHERE `userid` = ?");
@@ -481,7 +481,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 $stmt->execute();
                 $stmt->close();
     
-                sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست زمان سرویسشو افزایش بده",null,null,$admin);
+                sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست زمان سرویسشو افزایش بده",null,null,$admin);
             }
         }
         elseif(preg_match('/^INCREASE_VOLUME_(\d+)_(\d+)/',$payType, $increaseInfo)){
@@ -529,7 +529,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 $stmt->bind_param("s", $uuid);
                 $stmt->execute();
                 $stmt->close();
-                sendMessage( "✅$volume گیگ به حجم سرویس شما اضافه شد",getMainKeys(), null, $user_id);
+                sendMessage( "🟢$volume گیگ به حجم سرویس شما اضافه شد",getMainKeys(), null, $user_id);
             }else {
                 sendMessage("پرداخت شما با موفقیت انجام شد ولی مشکل فنی در ارتباط با سرور. لطفا سلامت سرور را بررسی کنید مبلغ " . number_format($price) . " تومان به کیف پول شما اضافه شد",null,null,$user_id);
                 
@@ -538,7 +538,7 @@ if($botState['cartToCartAutoAcceptState']=="on"){
                 $stmt->execute();
                 $stmt->close();
 
-                sendMessage("✅ مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست حجم کانفیگشو افزایش بده",null,null,$admin);                
+                sendMessage("🟢 مبلغ " . number_format($price) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست حجم کانفیگشو افزایش بده",null,null,$admin);                
             }
         }
         elseif($payType == "RENEW_SCONFIG"){
@@ -582,10 +582,10 @@ if($botState['cartToCartAutoAcceptState']=="on"){
         	$stmt->execute();
         	$stmt->close();
 
-            sendMessage("✅سرویس $remark با موفقیت تمدید شد",null,null,$user_id);
+            sendMessage("🟢سرویس $remark با موفقیت تمدید شد",null,null,$user_id);
         }
         
 
-        editKeys(json_encode(['inline_keyboard'=>[[['text'=>"خودکار تأیید شد",'callback_data'=>"wizwizch"]]]]), $payInfo['message_id'], $payInfo['chat_id']);
+        editKeys(json_encode(['inline_keyboard'=>[[['text'=>"خودکار تأیید شد",'callback_data'=>"m3botch"]]]]), $payInfo['message_id'], $payInfo['chat_id']);
     }
 }

@@ -122,7 +122,7 @@ $arrays = [
     "ALTER TABLE `pays` ADD `chat_id` VARCHAR(500) NULL DEFAULT NULL AFTER `message_id`;",
     ];
 function updateBot(){
-    global $arrays, $connection, $walletwizwiz, $nowPaymentKey, $zarinpalId;
+    global $arrays, $connection, $walletm3bot, $nowPaymentKey, $zarinpalId;
     
     foreach($arrays as $query){
         try{
@@ -149,7 +149,7 @@ function updateBot(){
     }
     if(isset($nowPaymentKey) && isset($zarinpalId)){
         $paymentKeys = array();
-        $paymentKeys['bankAccount'] = $walletwizwiz;
+        $paymentKeys['bankAccount'] = $walletm3bot;
         $paymentKeys['holderName'] = "";
         $paymentKeys['nowpayment'] = $nowPaymentKey;
         $paymentKeys['zarinpal'] = $zarinpalId;
@@ -222,6 +222,6 @@ function updateBot(){
     
     
     if(file_exists(getcwd() . '/tempCookie.txt')) unlink('../tempCookie.txt');
-    if(file_exists(getcwd() . '/settings/messagewizwiz.json')) unlink('../settings/messagewizwiz.json');
+    if(file_exists(getcwd() . '/settings/messagem3bot.json')) unlink('../settings/messagem3bot.json');
 }
 ?>

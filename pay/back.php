@@ -253,8 +253,8 @@ if($payType == "BUY_SUB"){
         $stmt->bind_param("ii", $amount, $user_id);
         $stmt->execute();
         $stmt->close();
-        sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-        sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
+        sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+        sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
 
         exit;
     }
@@ -272,8 +272,8 @@ if($payType == "BUY_SUB"){
             $stmt->bind_param("ii", $amount, $user_id);
             $stmt->execute();
             $stmt->close();
-            sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-            sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
+            sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+            sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ظرفیت پر بود",null,null,$admin);                
             exit;
         }
     }
@@ -359,20 +359,20 @@ if($payType == "BUY_SUB"){
             $stmt->bind_param("ii", $amount, $user_id);
             $stmt->execute();
             $stmt->close();
-            sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-            sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، اتصال به سرور برقرار نبود",null,null,$admin);                
+            sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+            sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، اتصال به سرور برقرار نبود",null,null,$admin);                
     
             exit;
         }
     	if($response == "inbound not Found"){
-            showForm("پرداخت شما با موفقیت انجام شد ولی ❌ | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...مبلغ " . number_format($amount) . " به کیف پول شما اضافه شد",$payDescription);
+            showForm("پرداخت شما با موفقیت انجام شد ولی 🚫 | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...مبلغ " . number_format($amount) . " به کیف پول شما اضافه شد",$payDescription);
     
             $stmt = $connection->prepare("UPDATE `users` SET `wallet` = `wallet` + ? WHERE `userid` = ?");
             $stmt->bind_param("ii", $amount, $user_id);
             $stmt->execute();
             $stmt->close();
-            sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-            sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی انباند پیدا نشد",null,null,$admin);                
+            sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+            sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی انباند پیدا نشد",null,null,$admin);                
     
     		exit;
     	}
@@ -383,8 +383,8 @@ if($payType == "BUY_SUB"){
             $stmt->bind_param("ii", $amount, $user_id);
             $stmt->execute();
             $stmt->close();
-            sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-            sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی خطا داد",null,null,$admin);                
+            sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+            sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد میخواست کانفیگ بخره، ولی خطا داد",null,null,$admin);                
             exit;
         }
         
@@ -403,8 +403,8 @@ if($payType == "BUY_SUB"){
 
         foreach($vraylink as $link){
             $acc_text = "
-😍 سفارش جدید شما
-📡 پروتکل: $protocol
+🤩 سفارش جدید شما
+📶 پروتکل: $protocol
 🔮 نام سرویس: $remark
 🔋حجم سرویس: $volume گیگ
 ⏰ مدت سرویس: $days روز
@@ -454,7 +454,7 @@ if($payType == "BUY_SUB"){
         
     }
 
-    showForm('پرداخت شما با موفقیت انجام شد 🚀 | 😍 در حال ارسال کانفیگ به تلگرام شما ...',$payDescription, true);
+    showForm('پرداخت شما با موفقیت انجام شد 🚀 | 🤩 در حال ارسال کانفیگ به تلگرام شما ...',$payDescription, true);
     
     
     $stmt = $connection->prepare("SELECT * FROM `users` WHERE `userid` = ?");
@@ -496,7 +496,7 @@ if($payType == "BUY_SUB"){
     
     $keys = json_encode(['inline_keyboard'=>[
         [
-            ['text'=>"خرید از درگاه $gateType 💞",'callback_data'=>'wizwizch'],
+            ['text'=>"خرید از درگاه $gateType 💖",'callback_data'=>'m3botch'],
             ],
         ]]);
 sendMessage("
@@ -518,8 +518,8 @@ elseif($payType == "INCREASE_WALLET"){
     $stmt->execute(); 
     $stmt->close(); 
     showForm("پرداخت شما با موفقیت انجام شد، مبلغ ". number_format($amount) . " تومان به کیف پول شما اضافه شد",$payDescription, true);
-    sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-    sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد",null,null,$admin);                
+    sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+    sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id توسط درگاه اضافه شد",null,null,$admin);                
 }
 elseif($payType == "RENEW_ACCOUNT"){
     $oid = $plan_id;
@@ -568,8 +568,8 @@ elseif($payType == "RENEW_ACCOUNT"){
         $stmt->bind_param("ii", $amount, $user_id);
         $stmt->execute();
         $stmt->close();
-        sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-        sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست کانفیگش رو تمدید کنه، ولی اتصال به سرور برقرار نبود",null,null,$admin);
+        sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+        sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست کانفیگش رو تمدید کنه، ولی اتصال به سرور برقرار نبود",null,null,$admin);
 		exit;
 	}
 	$stmt = $connection->prepare("UPDATE `orders_list` SET `expire_date` = ?, `notif` = 0 WHERE `id` = ?");
@@ -582,11 +582,11 @@ elseif($payType == "RENEW_ACCOUNT"){
 	$stmt->execute();
 	$stmt->close();
 	
-    showForm("✅سرویس $remark با موفقیت تمدید شد",$payDescription, true);
+    showForm("🟢سرویس $remark با موفقیت تمدید شد",$payDescription, true);
     
     $keys = json_encode(['inline_keyboard'=>[
         [
-            ['text'=>"خرید از درگاه $gateType 💞",'callback_data'=>'wizwizch'],
+            ['text'=>"خرید از درگاه $gateType 💖",'callback_data'=>'m3botch'],
             ],
         ]]);
     $user_info = Bot('getChat',['chat_id'=>$user_id])->result;
@@ -662,7 +662,7 @@ elseif(preg_match('/^INCREASE_DAY_(\d+)_(\d+)/',$payType,$match)){
         showForm("پرداخت شما با موفقیت انجام شد. $volume روز به مدت زمان سرویس شما اضافه شد",$payDescription, true);
         $keys = json_encode(['inline_keyboard'=>[
         [
-            ['text'=>"خرید از درگاه $gateType 💞",'callback_data'=>'wizwizch'],
+            ['text'=>"خرید از درگاه $gateType 💖",'callback_data'=>'m3botch'],
             ],
             ]]);
                     $user_info = Bot('getChat',['chat_id'=>$user_id])->result;
@@ -686,8 +686,8 @@ exit;
         $stmt->bind_param("ii", $amount, $user_id);
         $stmt->execute();
         $stmt->close();
-        sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-        sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست زمان سرویسشو افزایش بده",null,null,$admin);
+        sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+        sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست زمان سرویسشو افزایش بده",null,null,$admin);
         exit;
     }
 }
@@ -738,7 +738,7 @@ elseif(preg_match('/^INCREASE_VOLUME_(\d+)_(\d+)/',$payType, $match)){
         showForm("پرداخت شما با موفقیت انجام شد. $volume گیگ به حجم سرویس شما اضافه شد",$payDescription, true);
         $keys = json_encode(['inline_keyboard'=>[
         [
-            ['text'=>"خرید از درگاه $gateType 💞",'callback_data'=>'wizwizch'],
+            ['text'=>"خرید از درگاه $gateType 💖",'callback_data'=>'m3botch'],
             ],
             ]]);
                     $user_info = Bot('getChat',['chat_id'=>$user_id])->result;
@@ -763,8 +763,8 @@ exit;
         $stmt->bind_param("ii", $amount, $user_id);
         $stmt->execute();
         $stmt->close();
-        sendMessage("✅ مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
-        sendMessage("✅ مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست حجم کانفیگشو افزایش بده",null,null,$admin);                
+        sendMessage("🟢 مبلغ " . number_format($amount). " تومان به حساب شما اضافه شد",null,null,$user_id);
+        sendMessage("🟢 مبلغ " . number_format($amount) . " تومان به کیف پول کاربر $user_id اضافه شد، میخواست حجم کانفیگشو افزایش بده",null,null,$admin);                
 
         exit;
     }
@@ -816,7 +816,7 @@ elseif($payType == "RENEW_SCONFIG"){
 	$stmt->bind_param("iiisii", $user_id, $server_id, $inbound_id, $remark, $price, $time);
 	$stmt->execute();
 	$stmt->close();
-    sendMessage("✅سرویس $remark با موفقیت تمدید شد",null,null,$user_id);
+    sendMessage("🟢سرویس $remark با موفقیت تمدید شد",null,null,$user_id);
 
 }
 sendMessage("پرداخت شما با موفقیت انجام شد",json_encode(['inline_keyboard'=>[[['text'=>"صفحه اصلی 🏘",'callback_data'=>"mainMenu"]]]]),null,$user_id);

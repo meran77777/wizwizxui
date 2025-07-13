@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Written By: wizwiz
+# Written By: m3bot
 
 if [ "$(id -u)" -ne 0 ]; then
     echo -e "\033[33mPlease run as root\033[0m"
@@ -16,7 +16,7 @@ echo -e "\e[32m
 ██ ███ ██ ██  ███    ██ ███ ██ ██  ███         ██ ██  ██    ██ ██ 
  ███ ███  ██ ███████  ███ ███  ██ ███████     ██   ██  ██████  ██ 
 \033[0m"
-echo -e "    \e[31mTelegram Channel: \e[34m@wizwizch\033[0m | \e[31mTelegram Group: \e[34m@wizwizdev\033[0m\n"
+echo -e "    \e[31mTelegram Channel: \e[34m@m3botch\033[0m | \e[31mTelegram Group: \e[34m@m3botdev\033[0m\n"
 
 #sleep
 echo -e "\e[32mInstalling WizWiz script ... \033[0m\n"
@@ -97,9 +97,9 @@ sudo systemctl restart apache2.service
 
 wait
 
-git clone https://github.com/wizwizdev/wizwizxui-timebot.git /var/www/html/wizwizxui-timebot
-sudo chown -R www-data:www-data /var/www/html/wizwizxui-timebot/
-sudo chmod -R 755 /var/www/html/wizwizxui-timebot/
+git clone https://github.com/m3botdev/m3botv1.git /var/www/html/m3botv1
+sudo chown -R www-data:www-data /var/www/html/m3botv1/
+sudo chmod -R 755 /var/www/html/m3botv1/
 echo -e "\n\033[33mWizWiz config and script have been installed successfully\033[0m"
 
 wait
@@ -111,9 +111,9 @@ echo "Directory created: ${RANDOM_CODE}"
 echo "Folder created successfully!"
 
  cd /var/www/html/
- wget -O wizwizpanel.zip https://github.com/wizwizdev/wizwizxui-timebot/releases/download/10.3.1/wizwizpanel.zip
+ wget -O m3botpanel.zip https://github.com/m3botdev/m3botv1/releases/download/10.3.1/m3botpanel.zip
 
- file_to_transfer="/var/www/html/wizwizpanel.zip"
+ file_to_transfer="/var/www/html/m3botpanel.zip"
  destination_dir=$(find /var/www/html -type d -name "*${RANDOM_CODE}*" -print -quit)
 
  if [ -z "$destination_dir" ]; then
@@ -121,34 +121,34 @@ echo "Folder created successfully!"
    exit 1
  fi
 
- mv "$file_to_transfer" "$destination_dir/" && yes | unzip "$destination_dir/wizwizpanel.zip" -d "$destination_dir/" && rm "$destination_dir/wizwizpanel.zip" && sudo chmod -R 755 "$destination_dir/" && sudo chown -R www-data:www-data "$destination_dir/" 
+ mv "$file_to_transfer" "$destination_dir/" && yes | unzip "$destination_dir/m3botpanel.zip" -d "$destination_dir/" && rm "$destination_dir/m3botpanel.zip" && sudo chmod -R 755 "$destination_dir/" && sudo chown -R www-data:www-data "$destination_dir/" 
 
 
 wait
 
 
-if [ ! -d "/root/confwizwiz" ]; then
+if [ ! -d "/root/confm3bot" ]; then
 
-    sudo mkdir /root/confwizwiz
+    sudo mkdir /root/confm3bot
     
     sleep 1
     
-    touch /root/confwizwiz/dbrootwizwiz.txt
-    sudo chmod -R 777 /root/confwizwiz/dbrootwizwiz.txt
+    touch /root/confm3bot/dbrootm3bot.txt
+    sudo chmod -R 777 /root/confm3bot/dbrootm3bot.txt
     sleep 1
     
     randomdbpasstxt=$(openssl rand -base64 10 | tr -dc 'a-zA-Z0-9' | cut -c1-30)
 
     ASAS="$"
 
-    echo "${ASAS}user = 'root';" >> /root/confwizwiz/dbrootwizwiz.txt
-    echo "${ASAS}pass = '${randomdbpasstxt}';" >> /root/confwizwiz/dbrootwizwiz.txt
-    #echo "${ASAS}paths = '${RANDOM_CODE}';" >> /root/confwizwiz/dbrootwizwiz.txt
+    echo "${ASAS}user = 'root';" >> /root/confm3bot/dbrootm3bot.txt
+    echo "${ASAS}pass = '${randomdbpasstxt}';" >> /root/confm3bot/dbrootm3bot.txt
+    #echo "${ASAS}paths = '${RANDOM_CODE}';" >> /root/confm3bot/dbrootm3bot.txt
     
     sleep 1
 
-    passs=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
-    userrr=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$user' | cut -d"'" -f2)
+    passs=$(cat /root/confm3bot/dbrootm3bot.txt | grep '$pass' | cut -d"'" -f2)
+    userrr=$(cat /root/confm3bot/dbrootm3bot.txt | grep '$user' | cut -d"'" -f2)
 
     sudo mysql -u $userrr -p$passs -e "alter user '$userrr'@'localhost' identified with mysql_native_password by '$passs';FLUSH PRIVILEGES;"
 
@@ -186,12 +186,12 @@ DOMAIN_NAME="$domainname"
 # WILDCARD_DOMAIN="*.$wildcarddomain"
 
 # update cron
-PATHS=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$path' | cut -d"'" -f2)
-(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot/settings/messagewizwiz.php >/dev/null 2>&1") | sort - | uniq - | crontab -
-(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot/settings/rewardReport.php >/dev/null 2>&1") | sort - | uniq - | crontab -
-(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot/settings/warnusers.php >/dev/null 2>&1") | sort - | uniq - | crontab -
-(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot/settings/gift2all.php >/dev/null 2>&1") | sort - | uniq - | crontab -
-(crontab -l ; echo "*/3 * * * * curl https://${DOMAIN_NAME}/wizwizxui-timebot/settings/tronChecker.php >/dev/null 2>&1") | sort - | uniq - | crontab -
+PATHS=$(cat /root/confm3bot/dbrootm3bot.txt | grep '$path' | cut -d"'" -f2)
+(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/m3botv1/settings/messagem3bot.php >/dev/null 2>&1") | sort - | uniq - | crontab -
+(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/m3botv1/settings/rewardReport.php >/dev/null 2>&1") | sort - | uniq - | crontab -
+(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/m3botv1/settings/warnusers.php >/dev/null 2>&1") | sort - | uniq - | crontab -
+(crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/m3botv1/settings/gift2all.php >/dev/null 2>&1") | sort - | uniq - | crontab -
+(crontab -l ; echo "*/3 * * * * curl https://${DOMAIN_NAME}/m3botv1/settings/tronChecker.php >/dev/null 2>&1") | sort - | uniq - | crontab -
 (crontab -l ; echo "* * * * * curl https://${DOMAIN_NAME}/${PATHS}/backupnutif.php >/dev/null 2>&1") | sort - | uniq - | crontab -
 
 echo -e "\n\e[92m Setting Up Cron...\033[0m\n"
@@ -234,7 +234,7 @@ wait
 
 echo " "
 
-ROOT_PASSWORD=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
+ROOT_PASSWORD=$(cat /root/confm3bot/dbrootm3bot.txt | grep '$pass' | cut -d"'" -f2)
 ROOT_USER="root"
 echo "SELECT 1" | mysql -u$ROOT_USER -p$ROOT_PASSWORD 2>/dev/null
 
@@ -247,11 +247,11 @@ wait
 
     randomdbdb=$(openssl rand -base64 10 | tr -dc 'a-zA-Z0-9' | cut -c1-22)
 
-    if [[ $(mysql -u root -p$ROOT_PASSWORD -e "SHOW DATABASES LIKE 'wizwiz'") ]]; then
+    if [[ $(mysql -u root -p$ROOT_PASSWORD -e "SHOW DATABASES LIKE 'm3bot'") ]]; then
         clear
         echo -e "\n\e[91mYou have already created the database\033[0m\n"
     else
-        dbname=wizwiz
+        dbname=m3bot
         clear
         echo -e "\n\e[32mPlease enter the database username!\033[0m"
         printf "[+] Default user name is \e[91m${randomdbdb}\e[0m ( let it blank to use this user name ): "
@@ -292,7 +292,7 @@ wait
 
         sleep 1
         
-        file_path="/var/www/html/wizwizxui-timebot/baseInfo.php"
+        file_path="/var/www/html/m3botv1/baseInfo.php"
         
         if [ -f "$file_path" ]; then
           rm "$file_path"
@@ -304,41 +304,41 @@ wait
         sleep 2
         
         # print file
-        echo -e "<?php" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "error_reporting(0);" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "${ASAS}botToken = '${YOUR_BOT_TOKEN}';" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "${ASAS}dbUserName = '${dbuser}';" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "${ASAS}dbPassword = '${dbpass}';" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "${ASAS}dbName = '${dbname}';" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "${ASAS}botUrl = 'https://${YOUR_DOMAIN}/wizwizxui-timebot/';" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "${ASAS}admin = ${YOUR_CHAT_ID};" >> /var/www/html/wizwizxui-timebot/baseInfo.php
-        echo -e "?>" >> /var/www/html/wizwizxui-timebot/baseInfo.php
+        echo -e "<?php" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "error_reporting(0);" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "${ASAS}botToken = '${YOUR_BOT_TOKEN}';" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "${ASAS}dbUserName = '${dbuser}';" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "${ASAS}dbPassword = '${dbpass}';" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "${ASAS}dbName = '${dbname}';" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "${ASAS}botUrl = 'https://${YOUR_DOMAIN}/m3botv1/';" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "${ASAS}admin = ${YOUR_CHAT_ID};" >> /var/www/html/m3botv1/baseInfo.php
+        echo -e "?>" >> /var/www/html/m3botv1/baseInfo.php
 
         sleep 1
 
-        curl -F "url=https://${YOUR_DOMAIN}/wizwizxui-timebot/bot.php" "https://api.telegram.org/bot${YOUR_BOT_TOKEN}/setWebhook"
-        MESSAGE="✅ The wizwiz bot has been successfully installed! @wizwizch"
+        curl -F "url=https://${YOUR_DOMAIN}/m3botv1/bot.php" "https://api.telegram.org/bot${YOUR_BOT_TOKEN}/setWebhook"
+        MESSAGE="🟢 The m3bot bot has been successfully installed! @m3botch"
         curl -s -X POST "https://api.telegram.org/bot${YOUR_BOT_TOKEN}/sendMessage" -d chat_id="${YOUR_CHAT_ID}" -d text="$MESSAGE"
         
         
         sleep 1
         
-        url="https://${YOUR_DOMAIN}/wizwizxui-timebot/createDB.php"
+        url="https://${YOUR_DOMAIN}/m3botv1/createDB.php"
         curl $url
         
         sleep 1
         
-        sudo rm -r /var/www/html/wizwizxui-timebot/webpanel
-        sudo rm -r /var/www/html/wizwizxui-timebot/install
-        sudo rm /var/www/html/wizwizxui-timebot/createDB.php
-	rm /var/www/html/wizwizxui-timebot/updateShareConfig.php
-	rm /var/www/html/wizwizxui-timebot/README.md
-	rm /var/www/html/wizwizxui-timebot/README-fa.md
-	rm /var/www/html/wizwizxui-timebot/LICENSE
-	rm /var/www/html/wizwizxui-timebot/update.sh
-	rm /var/www/html/wizwizxui-timebot/wizwiz.sh
-	rm /var/www/html/wizwizxui-timebot/tempCookie.txt
-	rm /var/www/html/wizwizxui-timebot/settings/messagewizwiz.json
+        sudo rm -r /var/www/html/m3botv1/webpanel
+        sudo rm -r /var/www/html/m3botv1/install
+        sudo rm /var/www/html/m3botv1/createDB.php
+	rm /var/www/html/m3botv1/updateShareConfig.php
+	rm /var/www/html/m3botv1/README.md
+	rm /var/www/html/m3botv1/README-fa.md
+	rm /var/www/html/m3botv1/LICENSE
+	rm /var/www/html/m3botv1/update.sh
+	rm /var/www/html/m3botv1/m3bot.sh
+	rm /var/www/html/m3botv1/tempCookie.txt
+	rm /var/www/html/m3botv1/settings/messagem3bot.json
             
         clear
         
@@ -350,7 +350,7 @@ wait
         echo -e "\e[33mDatabase username: \e[36m${dbuser}\033[0m"
         echo -e "\e[33mDatabase password: \e[36m${dbpass}\033[0m"
         echo " "
-        echo -e "\e[100mwizwiz panel:\033[0m"
+        echo -e "\e[100mm3bot panel:\033[0m"
         echo -e "\e[33maddres: \e[36mhttps://${YOUR_DOMAIN}/${RANDOM_CODE}/login.php\033[0m"
         
         echo " "
