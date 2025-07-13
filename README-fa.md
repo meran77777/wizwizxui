@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/wizwizdev/wizwizxui-timebot" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/m3botdev/m3botv1" target="_blank" rel="noopener noreferrer">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/27927279/227711552-d2bc1089-5666-477b-9be7-d7e50a5286dc.png">
       <img width="200" height="200" src="https://user-images.githubusercontent.com/27927279/227711552-d2bc1089-5666-477b-9be7-d7e50a5286dc.png">
@@ -18,31 +18,31 @@
 
 </p>
 
-<h1 align="center"/>ویزویز</h1>
+<h1 align="center"/>M3</h1>
 
 <p align="center">
-فروش آسان با <a href="https://github.com/wizwizdev/wizwizxui-timebot">ویزویز</a> نصب فقط با یک دستور
+فروش آسان با <a href="https://github.com/m3botdev/m3botv1">M3</a> نصب فقط با یک دستور
 </p>
 
 <p align="center">
-ویزویز یک ربات قدرتمند و حرفه ای است که از چندین نوع پنل پشتیبانی می کند و بهترین گزینه برای فروش است، اکثر پروتکل ها را پشتیبانی می کند و نصب آسانی دارد. این ربات برای مردم عزیز ایران آماده شده است. یک جایگزین عالی برای فروش است تا بتوانید به راحتی کار خود را مدیریت کنید.
+M3 یک ربات قدرتمند و حرفه ای است که از چندین نوع پنل پشتیبانی می کند و بهترین گزینه برای فروش است، اکثر پروتکل ها را پشتیبانی می کند و نصب آسانی دارد. این ربات برای مردم عزیز ایران آماده شده است. یک جایگزین عالی برای فروش است تا بتوانید به راحتی کار خود را مدیریت کنید.
 </p>
 
 
 <div align=center>
 
-[![Telegram Channel](https://img.shields.io/endpoint?label=Channel&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fwizwizch&color=blue)](https://telegram.dog/wizwizch)
-[![Telegram Group](https://img.shields.io/endpoint?color=neon&label=Support%20Group&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fwizwizdev)](https://telegram.dog/wizwizdev)
-<img src="https://img.shields.io/github/license/wizwizdev/wizwizxui-timebot?style=flat-square" />
-<img src="https://img.shields.io/github/v/release/wizwizdev/wizwizxui-timebot.svg" />
-<!-- <img src="https://visitor-badge.glitch.me/badge?page_id=wizwizdev.wizwizdev" />
+[![Telegram Channel](https://img.shields.io/endpoint?label=Channel&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fm3botch&color=blue)](https://telegram.dog/m3botch)
+[![Telegram Group](https://img.shields.io/endpoint?color=neon&label=Support%20Group&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fm3botdev)](https://telegram.dog/m3botdev)
+<img src="https://img.shields.io/github/license/m3botdev/m3botv1?style=flat-square" />
+<img src="https://img.shields.io/github/v/release/m3botdev/m3botv1.svg" />
+<!-- <img src="https://visitor-badge.glitch.me/badge?page_id=m3botdev.m3botdev" />
  -->
 </div>
 
 <br>
 <br>
     <a align="center">
-        <img src="https://github.com/wizwizdev/wizwizxui-timebot/assets/27927279/f6635ea5-ab26-4c64-a7b8-952203f79763" />
+        <img src="https://github.com/m3botdev/m3botv1/assets/27927279/f6635ea5-ab26-4c64-a7b8-952203f79763" />
     </a>     
 <br>
 <br>
@@ -61,7 +61,7 @@
 - قبل از نصب حتما ip سرور را روی دامنه تنظیم کنید 
 > دستور نصب را در کنسول وارد کرده و موارد مورد نیاز را برای تکمیل نصب وارد کنید.
 ```
-bash <(curl -s https://raw.githubusercontent.com/wizwizdev/wizwizxui-timebot/main/wizwiz.sh)
+bash <(curl -s https://raw.githubusercontent.com/m3botdev/m3botv1/main/m3bot.sh)
 ```
 - در مرحله اول «sub.domain.com» یا «domain.com» را بدون https وارد کنید
 - ایمیل را وارد کنید
@@ -72,18 +72,20 @@ bash <(curl -s https://raw.githubusercontent.com/wizwizdev/wizwizxui-timebot/mai
 - توکن ربات را وارد کنید
 - آیدی عددی ادمین را از @userinfobot بگیرید و وارد کنید
 - مجدد «sub.domain.com» یا «domain.com» را بدون https وارد کنید
-- بسیار خوب، پیام نصب ( ✅ ربات wizwiz با موفقیت نصب شد! ) به ربات ارسال می شود.
+- بسیار خوب، پیام نصب ( 🟢 ربات m3bot با موفقیت نصب شد! ) به ربات ارسال می شود.
 
 <br>
 <br>
 
-## دستور آپدیت ربات - آپدیت پنل - بک آپ - حذف ویزویز
+## دستور آپدیت ربات - آپدیت پنل - بک آپ - حذف M3
 
-- با هر به روز رسانی و بک آپ، یک اعلان برای ربات مدیر ارسال می شود
+- با هر به روز رسانی و بک آپ، یک اعلان برای ربات مدیر ارسال می شود. اسکریپت
+بک آپ اکنون شناسه‌ی چت را به صورت ورودی می‌پذیرد تا مشخص کنید فایل برای چه
+کسی ارسال شود.
 
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/wizwizdev/wizwizxui-timebot/main/update.sh)
+bash <(curl -s https://raw.githubusercontent.com/m3botdev/m3botv1/main/update.sh)
 ```
 
 <br>
@@ -203,12 +205,12 @@ bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 حتما به گروه و کانال بپیوندید و از ما حمایت کنید
 
 ## Contact Developer
-💎 Group: https://t.me/wizwizdev
-💎 Channel: https://t.me/wizwizch
+🔷 Group: https://t.me/m3botdev
+🔷 Channel: https://t.me/m3botch
 
 <br>
 <br>
 
 ## Stargazers over time
 
-[![Stargazers over time](https://starchart.cc/wizwizdev/wizwizxui-timebot.svg)](https://starchart.cc/wizwizdev/wizwizxui-timebot)
+[![Stargazers over time](https://starchart.cc/m3botdev/m3botv1.svg)](https://starchart.cc/m3botdev/m3botv1)
